@@ -42,7 +42,11 @@ class ContactController {
     }
     
     async destroy ({ params, request, response }) {
-        await Contact.find(params.id).delete()
+        let contact = await Contact.find(params.id)
+        // if (contact.user_id !== auth.user.id) {
+        //     return response.status(401).send({ error: 'Not authorized' })
+        //   }
+        await contact.delete()
         return response.json({message: 'Contact deleted!'})
     } 
 }
