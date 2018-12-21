@@ -17,9 +17,21 @@
 const Route = use('Route')
 
 
-Route.on('/').render('welcome')
-Route.put('/api/contacts/:id', 'ContactController.update')
-Route.delete('/api/contacts/:id', 'ContactController.destroy')
-Route.post('/api/contacts', 'ContactController.store')
-Route.get('/api/contacts', 'ContactController.index')
-Route.get('/api/contacts/:id', 'ContactController.show')  
+
+Route.on('/').render('index')
+Route.on('/api/signup').render('auth.signup');
+Route.post('/api/signup', 'UserController.create').validator('CreateUser');
+Route.post('/api/login', 'UserController.login').validator('LoginUser');
+Route.on('/api/login').render('auth.login');
+//users routes
+Route.get('/api/users', 'UserController.index')
+Route.delete('/api/user/:id', 'UserController.destroy')
+Route.put('/api/user/:id', 'UserController.update')
+Route.get('/api/user/show/:id', 'UserController.show')
+
+
+Route.get('/logout', async ({ auth, response }) => {
+    await auth.logout();
+    return response.redirect('/');
+});
+
