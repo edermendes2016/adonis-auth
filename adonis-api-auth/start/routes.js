@@ -18,7 +18,7 @@ const Route = use('Route')
 
 
 
-Route.on('/').render('index')
+Route.on('/').render('index');
 Route.on('/api/signup').render('auth.signup');
 Route.post('/api/signup', 'UserController.create').validator('CreateUser');
 Route.post('/api/login', 'UserController.login').validator('LoginUser');

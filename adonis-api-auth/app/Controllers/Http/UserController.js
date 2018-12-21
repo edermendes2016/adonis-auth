@@ -18,7 +18,7 @@ class UserController {
             return response.redirect('/');
         } catch (error) {
             session.flash({ loginError: 'These credentials do not work.' })
-            return response.redirect('/login');
+            return response.redirect('/api/login');
         }
     }
 
@@ -26,6 +26,7 @@ class UserController {
         const user = await User.all()
         return response.json(user)
     }
+  
 
     async show({ params, request, response }) {
         let user = await User.find(params.id)

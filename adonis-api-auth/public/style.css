@@ -11,6 +11,13 @@ body {
   background-color: #EFEFEF;
 }
 
+.success-login {
+   color: green;
+   border-color: green;
+   border-left-style: solid;
+   border-left-width: 15px;   
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -54,7 +61,8 @@ nav ul li a:hover {
   margin-top: 2em;
 }
 h1 {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
+  margin-left: 20px;
 }
 .job-container, .job-container2 {
   background: white;

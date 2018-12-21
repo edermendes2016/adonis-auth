@@ -19,6 +19,7 @@
             <ul>            
                 @loggedIn                   
                     <li><a href="/logout">Logout</a></li>
+                    
                 @else
                     <li><a href="/api/login">Login</a></li>
                     <li><a href="/api/signup">Signup</a></li>
@@ -28,7 +29,14 @@
     </header>
 
     <div class="container">
-        @!section('content')
+        @loggedIn    
+        {{ style('style') }}               
+                  <div class="success-login">
+                    <h1>LOGIN SUCCESS</h1>
+                  </div>
+                @else
+                @!section('content')
+                @endloggedIn
     </div>
 </body>
 </html>
