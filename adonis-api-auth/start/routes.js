@@ -16,4 +16,9 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
+
 Route.on('/').render('welcome')
+Route.put('/api/contacts/:id', 'ContactController.update')
+Route.delete('/api/contacts/id', 'ContactController.destroy')
+Route.post('/api/contacts', 'ContactController.store')
+Route.get('/api/contacts', 'ContactController.index') 
